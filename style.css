@@ -1,0 +1,240 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+}
+
+/* Hiệu ứng trái tim bay lơ lửng ở nền */
+.hearts-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.heart-particle {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 20px;
+  animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(100vh) scale(0.5);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.9;
+  }
+
+  100% {
+    transform: translateY(-10vh) scale(1.2);
+    opacity: 0;
+  }
+}
+
+#intro,
+#mainContent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  z-index: 10;
+}
+
+#intro.active,
+#mainContent.active {
+  display: flex;
+}
+
+/* Khung Card hiệu ứng kính mờ (Glassmorphism) */
+.card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 24px;
+  padding: 30px;
+  box-shadow: 0 15px 35px rgba(255, 105, 180, 0.25);
+  text-align: center;
+  max-width: 450px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.intro-card .heart-icon {
+  font-size: 45px;
+  animation: heartbeat 1.2s infinite;
+  margin-bottom: 15px;
+}
+
+@keyframes heartbeat {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.25);
+  }
+}
+
+button {
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 25px;
+  margin: 10px 5px;
+  border: none;
+  border-radius: 50px;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  user-select: none;
+  position: relative;
+  z-index: 10;
+}
+
+#startBtn {
+  font-size: 18px;
+  padding: 15px 30px;
+  background: linear-gradient(135deg, #ff3366, #ff0055);
+  box-shadow: 0 4px 15px rgba(255, 51, 102, 0.4);
+  animation: pulse 2s infinite ease-in-out;
+}
+
+#startBtn span {
+  font-size: 14px;
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+#line {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 16px;
+  padding: 25px 30px;
+  box-shadow: inset 0 2px 8px rgba(255, 105, 180, 0.15);
+  font-size: 24px;
+  line-height: 1.5;
+  color: #d6336c;
+  font-weight: 600;
+  transition: opacity 0.5s ease;
+  min-height: 130px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  word-wrap: break-word;
+  white-space: normal;
+  margin-bottom: 20px;
+}
+
+.final {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  font-size: 22px;
+  color: #b12d5f;
+  font-weight: 600;
+}
+
+.final.active {
+  display: flex;
+}
+
+.final p {
+  margin-bottom: 20px;
+  white-space: pre-line;
+}
+
+.button-group {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 80px;
+  overflow: hidden;
+}
+
+#btnYes {
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  box-shadow: 0 4px 15px rgba(46, 204, 113, 0.4);
+  transform-origin: center;
+}
+
+#btnNo {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+  transform-origin: center;
+}
+
+.yesContent {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+.yesContent.active {
+  display: flex;
+}
+
+.yesContent h1 {
+  font-size: 26px;
+  color: #e91e63;
+  margin-bottom: 15px;
+}
+
+.gif_container img {
+  max-width: 100%;
+  width: 220px;
+  height: auto;
+  border-radius: 16px;
+  margin-top: 5px;
+  box-shadow: 0 6px 20px rgba(255, 105, 180, 0.4);
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}

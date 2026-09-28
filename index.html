@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tỏ Tình Crush 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+
+<body>
+  <div class="hearts-bg" id="heartsBg"></div>
+
+  <audio id="bgMusic" loop>
+    <source src="./music.mp3" type="audio/mp3" />
+  </audio>
+
+  <div id="intro" class="active">
+    <div class="card intro-card">
+      <div class="heart-icon">❤️</div>
+      <button id="startBtn">
+        Tớ có điều muốn nói<br /><span>Nhấn vào đây đi ✨</span>
+      </button>
+    </div>
+  </div>
+
+  <div id="mainContent">
+    <div class="card content-card">
+      <div id="line"></div>
+
+      <div id="final" class="final">
+        <p>Cậu đồng ý làm người yêu tớ nhaaa!!! 💖</p>
+        <div class="button-group">
+          <button id="btnYes" style="transform: scale(1);">Đồng ý</button>
+          <button id="btnNo" style="transform: scale(1);">Không</button>
+        </div>
+      </div>
+
+      <div id="msgYes" class="yesContent">
+        <h1>Cảm ơn cậu đã đồng ý! 🥰</h1>
+        <div class="gif_container">
+          <img
+            src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExaHk5a3hvNDBjZ3Z6NHgxaW9zMG5jM2w0YjQ4c2ZhMXd6NHZlYW9yeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/4N1wOi78ZGzSB6H7vK/giphy.gif"
+            alt="Cute Gif" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
